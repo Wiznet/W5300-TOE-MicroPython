@@ -1,0 +1,95 @@
+# How to Test Loopback Server Example
+
+![][link-loopback]
+
+## Step 1: Prepare Software
+
+> The following serial terminal program is required for **Loopback** test, download and install from below links.
+
+### &#10004;[**Thonny**][link-thonny]  and  &#10004; [**ezterm**][link-ezterm]
+
+
+
+## Step 2: Prepare hardware
+
+1. Combine WIZnet W5300-TOE Ethernet Shield and NUCLEO-F429ZI STM Board
+2. Connect ethernet cable to W5300-TOE ethernet port.
+3. Connect NUCLEO-F429ZI to desktop or laptop using 5 pin micro USB cable.
+
+
+## Step 3: Setup Loopback Example
+
+> To test the **Loopback example**, minor settings shall be done in code.
+
+1. Check COMport in [‘Configure interpreter …] and then open **Thonny** Python IDE.
+
+![][link-thonny-setup]
+
+2. Initialize ethernet interface and configuration.
+Open the example code to set **[Network Information]** 
+> nic.ifconfig(('IP Address', 'Netmask', 'Gateway', 'DNS'))
+
+```python
+
+from wiznet_conf import wiznet5k_w5300
+		...
+
+def main():
+    w5300=wiznet5k_w5300()
+    w5300.w5300_set_ip('192.168.11.104','255.255.255.0','192.168.11.1','8.8.8.8')
+    ...
+
+```
+
+3. How to operate as a **Loopback Server**.
+
+```python
+def server_loop(): 
+    s = socket()
+    s.bind(('192.168.1.20', 5000)) #Source IP Address
+    s.listen(5)
+            
+    conn, addr = s.accept()
+    print("Connect to:", conn, "address:", addr) 
+    print("Loopback server Open!")
+    while True:
+        data = conn.recv(2048)
+        print(data.decode('utf-8'))
+        if data != 'NULL':
+            conn.send(data)
+```
+
+## Step 4: Upload and Run
+
+# **`Loopback Server Mode`**
+
+1. The Loopback is executed and the server waits in Listen state.
+
+![][link-loopback_server_1]
+
+2. Open the Ezterm program to set client mode **[IP Address]** and **[PORT number]** and Connect to the Server.
+
+![][link-loopback_server_2]
+
+3. If you send the phrase Loopback Test, you can see that you are sending and receiving data.
+
+![][link-loopback_server_3]
+
+
+
+
+
+
+<!--
+Link
+-->
+
+[link-thonny]:https://thonny.org/
+[link-ezterm]:https://www.eztcp.com/en/download/ezterm
+[link-thonny-setup]:https://github.com/Wiznet/W5300-TOE-MicroPython/blob/main/static/images/thonny-setup_example.png
+
+[link-loopback]:https://github.com/Wiznet/W5300-TOE-MicroPython/blob/main/static/images/LOOPBACK/Loopback.png
+
+[link-loopback_server_1]:https://github.com/Wiznet/W5300-TOE-MicroPython/blob/main/static/images/LOOPBACK/Loopback_server_1.png
+[link-loopback_server_2]:https://github.com/Wiznet/W5300-TOE-MicroPython/blob/main/static/images/LOOPBACK/Loopback_server_2.png
+[link-loopback_server_3]:https://github.com/Wiznet/W5300-TOE-MicroPython/blob/main/static/images/LOOPBACK/Loopback_server_3.png
