@@ -48,11 +48,13 @@
 #include "stm32f7xx_hal_rtc.h"
 #include "stm32f7xx_hal_sd.h"
 #include "stm32f7xx_hal_sdram.h"
+#include "stm32f7xx_hal_sram.h"
 #include "stm32f7xx_hal_spi.h"
 #include "stm32f7xx_hal_tim.h"
 #include "stm32f7xx_hal_uart.h"
 #include "stm32f7xx_hal_usart.h"
 #include "stm32f7xx_hal_wwdg.h"
+#include "stm32f7xx_ll_fmc.h"
 #include "stm32f7xx_ll_adc.h"
 #include "stm32f7xx_ll_pwr.h"
 #include "stm32f7xx_ll_rtc.h"
@@ -85,6 +87,7 @@
 #define HAL_UART_MODULE_ENABLED
 #define HAL_USART_MODULE_ENABLED
 #define HAL_WWDG_MODULE_ENABLED
+#define HAL_SRAM_MODULE_ENABLED
 
 // Oscillator values in Hz
 #define HSI_VALUE (16000000)

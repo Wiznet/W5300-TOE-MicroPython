@@ -333,8 +333,9 @@ void stm32_main(uint32_t reset_mode) {
     #endif
 
     SCB_EnableICache();
+#if (MICROPY_PY_NETWORK_WIZNET5K != 5300)	
     SCB_EnableDCache();
-
+#endif
     #elif defined(STM32L4)
 
     #if !INSTRUCTION_CACHE_ENABLE
@@ -642,6 +643,7 @@ soft_reset_exit:
     #if MICROPY_PY_BLUETOOTH
     mp_bluetooth_deinit();
     #endif
+	__HAL_RCC_FMC_CLK_DISABLE();
     #if MICROPY_PY_NETWORK
     mod_network_deinit();
     #endif
