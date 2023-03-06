@@ -643,7 +643,7 @@ soft_reset_exit:
     #if MICROPY_PY_BLUETOOTH
     mp_bluetooth_deinit();
     #endif
-	__HAL_RCC_FMC_CLK_DISABLE();
+	//__HAL_RCC_FMC_CLK_DISABLE();
     #if MICROPY_PY_NETWORK
     mod_network_deinit();
     #endif
