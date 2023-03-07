@@ -15,11 +15,15 @@ The W5300 TOE examples use **W5300 TOE Shield** - ethernet I/O shield compatible
 
 - [**W5300 TOE Shield**][link-w5300_toe_shield]
 
-<p align="center"><img src="https://github.com/Wiznet/W5300-TOE-C/blob/main/Static/Images/w5300_toe_shield_main.png"></p>
+<p align="center"><img src="https://github.com/Wiznet/W5300-TOE-MicroPython/blob/main/static/images/w5300_toe_shield_main.png"></p>
 
 STM32 Nucleo-144 boards support the list below.
 
 - [**NUCLEO-F429ZI**][link-nucleo-f429zi]
+- [**NUCLEO-F439ZI**][link-nucleo-f439zi]
+- [**NUCLEO-F722ZE**][link-nucleo-f722ze]
+- [**NUCLEO-F756ZG**][link-nucleo-f756zg]
+- [**NUCLEO-F767ZI**][link-nucleo-f767zi]
 
 And W5300 TOE Examples supports two Thonny IDE.
 <p align="center"><img src="https://github.com/Wiznet/W5300-TOE-MicroPython/blob/main/static/images/MicroPython_Thonny.png"></p>
@@ -61,10 +65,14 @@ Link
 -->
 
 [link-w5300]: https://docs.wiznet.io/Product/iEthernet/W5300
-[link-w5300_toe_shield]: fill_in_the_blank
+[link-w5300_toe_shield]: https://docs.wiznet.io/Product/iEthernet/W5300/W5300-TOE-Shield
 [link-nucleo-f429zi]: https://www.st.com/en/evaluation-tools/nucleo-f429zi.html
+[link-nucleo-f439zi]: https://www.st.com/en/evaluation-tools/nucleo-f439zi.html
+[link-nucleo-f722ze]: https://www.st.com/en/evaluation-tools/nucleo-f722ze.html
+[link-nucleo-f756zg]: https://www.st.com/en/evaluation-tools/nucleo-f756zg.html
+[link-nucleo-f767zi]: https://www.st.com/en/evaluation-tools/nucleo-f767zi.html
 [link-getting_started]: https://github.com/Wiznet/W5300-TOE-MicroPython/blob/main/static/GettingStart.md
 [link-datasheet_w5300]: https://docs.wiznet.io/img/products/w5300/W5300_DS_V134E.pdf
-[link-datasheet_w5300_toe_shield]: fill_in_the_blank
+[link-datasheet_w5300_toe_shield]: https://docs.wiznet.io/Product/iEthernet/W5300/W5300-TOE-Shield
 [link-w5300-toe-arduino]: https://github.com/Wiznet/W5300-TOE-Arduino
 [link-w5300-toe-c]: https://github.com/Wiznet/W5300-TOE-C
