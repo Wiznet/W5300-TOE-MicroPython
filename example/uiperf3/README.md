@@ -1,6 +1,5 @@
 # How to Use uiperf3 Example
 
-![][link-http]
 This project is designed to measure network performance using uiperf3 client with Wiznet W5300 Ethernet Controller. It runs the uiperf3 client to measure the network performance.
 
 ## Step 1: Prepare Software
