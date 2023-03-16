@@ -81,11 +81,12 @@ In addition, the following ports are provided in this repository:
  > NUCLEO-F429ZI, NUCLEO-F439ZI, NUCLEO-F722ZE, NUCLEO-F756ZG, NUCLEO-F767ZI)
 
 Setting up Pin for W5300 on STM32 board
------------------------------------------
+==
 In order to use the W5300 on an STM32 board, it is necessary to adjust the FMC settings. Specifically, if using FMC 16-bit, it will be necessary to modify any pins that overlap with previously set pins
 To make these changes, locate the file "mpconfigureboard.h" in the directory "port/stm32/Board/NUCLEO_Fxxx" and edit the pins as indicated below.
 
-####Step1. FMC pin configuration for the W5300
+Step1. FMC pin configuration for the W5300
+----
 When using the W5300, the FMC interface used by the SD card is also used, making it impossible to use both at the same time. Therefore, the SD card setting must be disabled.
 ```cpp
 #define MICROPY_HW_ENABLE_SDCARD    (0)
@@ -127,7 +128,8 @@ Remove the RMII Ethernet defines and add the FMC defines.
 
 ```
 
-####Step2. Change duplicate pin
+Step2. Change duplicate pin
+----
 In the example provided by WIZnet, redundant pin settings have been modified. If you use different settings than those provided, you will need to modify the 'mpconfigureboard.h' file accordingly.
 
 Here is an example of how to modify the UART3 settings in the 'mpconfigureboard.h' file. Please refer to this example when making similar changes.
