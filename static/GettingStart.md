@@ -24,8 +24,27 @@ These sections will guide you through a series of steps from configuring develop
 If you use other STM board, supported board of STMicroelectronics micropython in [**LIST**][link-suppoted_stm]
 and check that the board supports FMC 16bit data
 
-## Pin Diagram
+## Development Environment Configuration
+### Setup ST-LINK
 
+The ST-LINK pin was changed due to overlapping use of the FMC(Flexible Memory controller) data pin to control the W5300 built in the W5300 TOE Shield and the ST-LINK pin of the STM32 Nucleo-144 board.
+
+- STLK_RX[STM32F103CBT6_PA3] : PD8 → **PC10**
+- STLK_TX[STM32F103CBT6_PA2] : PD9 → **PC11**
+
+Therefore, in order to use the ST-LINK of the STM32 Nucleo-144 board, minor settings are required for the W5300 TOE Shield and STM32 Nucleo-144 board.
+
+1. Remove SB5 and SB6 from the top of the STM32 Nucleo-144 board.
+
+<p align="center"><img src="https://github.com/Wiznet/W5300-TOE-C/blob/main/Static/images/getting_started/stm32_nucleo-144_board_sb5_sb6.png"></p>
+
+2. With the W5300 TOE Shield and STM32 Nucleo-144 board combined, connect PC10, PC11 of the W5300 TOE Shield and CN5 TX, RX of the top of the STM32 Nucleo-144 board with jumper cables.
+
+- W5300 TOE Shield : **PC10** - STM32 Nucleo-144 board : **RX**
+- W5300 TOE Shield : **PC11** - STM32 Nucleo-144 board : **TX**
+<p align="center"><img src="https://github.com/Wiznet/W5300-TOE-C/blob/main/Static/images/getting_started/stm32_nucleo-144_board_cn5_tx_rx.png"></p>
+
+## Pin Diagram
 **`STM32F429ZI`**
 This document is based on STM32F429ZI. If you use other STM board, Please edit it to your HW configuration.
 ![][link-stm_pinmap]
